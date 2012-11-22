@@ -4,7 +4,7 @@ def create_visitor
   @visitor ||= {
     first_name: "Testy",
     last_name: "McUserton",
-    login: "McTesty",
+    login: "mctesty",
     email: "example@example.com",
     password: "please",
     password_confirmation: "please" }
@@ -24,7 +24,8 @@ end
 def create_user
   create_visitor
   delete_user
-  @user = FactoryGirl.create(:user, email: @visitor[:email])
+  @user = FactoryGirl.create(:user, email: @visitor[:email],
+                                    login: @visitor[:login])
 end
 
 def delete_user
@@ -45,9 +46,9 @@ def sign_up
   find_user
 end
 
-def sign_in
+def sign_in login_type = :email
   visit '/users/sign_in'
-  fill_in "Email", :with => @visitor[:email]
+  fill_in "Login or email", :with => @visitor[login_type]
   fill_in "Password", :with => @visitor[:password]
   click_button "Sign in"
 end
@@ -76,9 +77,9 @@ Given /^I exist as an unconfirmed user$/ do
 end
 
 ### WHEN ###
-When /^I sign in with valid credentials$/ do
+When /^I sign in with (email|login) and password$/ do |login_type|
   create_visitor
-  sign_in
+  sign_in login_type.to_sym
 end
 
 When /^I sign out$/ do

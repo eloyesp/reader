@@ -6,7 +6,6 @@ Feature: Sign up
     Background:
       Given I am not logged in
 
-    @wip
     Scenario: User signs up with valid data
       When I sign up with valid user data
       Then I should see a successful sign up message
