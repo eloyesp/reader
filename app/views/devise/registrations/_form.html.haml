@@ -1,9 +1,14 @@
-= simple_form_for resource do |form|
+= simple_form_for resource, :url => registration_path(resource_name) do |form|
   = form.input :first_name
   = form.input :last_name
   = form.input :login
   = form.input :email
-  = form.input :password
-  = form.input :password_confirmation
+  - if resource.new_record?
+    = form.input :password
+    = form.input :password_confirmation
+  - else
+    = form.input :password, :hint => "Leave blank if you don't want to change it", :autocomplete => "off"
+    = form.input :password_confirmation
+    = form.input :current_password, :hint => "We need your current password to confirm your changes"
   = form.wrapped_button :submit
 
