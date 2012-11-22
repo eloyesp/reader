@@ -1,8 +1,13 @@
 ### UTILITY METHODS ###
 
 def create_visitor
-  @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
-    :password => "please", :password_confirmation => "please" }
+  @visitor ||= {
+    first_name: "Testy",
+    last_name: "McUserton",
+    login: "McTesty",
+    email: "example@example.com",
+    password: "please",
+    password_confirmation: "please" }
 end
 
 def find_user
@@ -30,7 +35,9 @@ end
 def sign_up
   delete_user
   visit '/users/sign_up'
-  fill_in "Name", :with => @visitor[:name]
+  fill_in "First Name", :with => @visitor[:first_name]
+  fill_in "Last Name", :with => @visitor[:last_name]
+  fill_in "Login", :with => @visitor[:login]
   fill_in "Email", :with => @visitor[:email]
   fill_in "user_password", :with => @visitor[:password]
   fill_in "Password confirmation", :with => @visitor[:password_confirmation]
