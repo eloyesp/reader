@@ -1,4 +1,5 @@
 require 'simple_form_extensions/wrapped_button'
+require 'simple_form_extensions/full_error'
 
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
@@ -8,7 +9,7 @@ SimpleForm.setup do |config|
     b.use :label
     b.wrapper :tag => 'div', :class => 'controls' do |ba|
       ba.use :input
-      ba.use :error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
+      ba.use :full_error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
       ba.use :hint,  :wrap_with => { :tag => 'p', :class => 'help-block' }
     end
   end
