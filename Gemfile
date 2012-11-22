@@ -19,6 +19,7 @@ group :development do
   gem "haml-rails", ">= 0.3.5"
   gem "hpricot", ">= 0.8.6"
   gem "ruby_parser", ">= 3.0.1"
+  gem 'rdiscount', :require => false
 end
 
 group :development, :test do
