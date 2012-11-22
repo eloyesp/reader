@@ -22,6 +22,8 @@ group :development do
 end
 
 group :development, :test do
+  gem 'pry'
+  gem 'pry-doc'
   gem "rspec-rails", ">= 2.11.4"
   gem "factory_girl_rails", ">= 4.1.0"
 end
