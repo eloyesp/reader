@@ -35,8 +35,8 @@ end
 def sign_up
   delete_user
   visit '/users/sign_up'
-  fill_in "First Name", :with => @visitor[:first_name]
-  fill_in "Last Name", :with => @visitor[:last_name]
+  fill_in "First name", :with => @visitor[:first_name]
+  fill_in "Last name", :with => @visitor[:last_name]
   fill_in "Login", :with => @visitor[:login]
   fill_in "Email", :with => @visitor[:email]
   fill_in "user_password", :with => @visitor[:password]
