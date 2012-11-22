@@ -130,9 +130,9 @@ end
 
 When /^I edit my account details$/ do
   click_link "Edit account"
-  fill_in "Name", :with => "newname"
+  fill_in "First name", :with => "newname"
   fill_in "Current password", :with => @visitor[:password]
-  click_button "Update"
+  click_button "Save changes"
 end
 
 When /^I look at the list of users$/ do

@@ -27,5 +27,5 @@ en:
     submit:
       user:
         create: "Sign up"
-        update: "Save Changes"
+        update: "Save changes"
 
