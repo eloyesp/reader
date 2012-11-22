@@ -7,3 +7,4 @@ Feature: Edit User
       Given I am logged in
       When I edit my account details
       Then I should see an account edited message
+
