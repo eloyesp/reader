@@ -1,3 +1,5 @@
+require 'simple_form_extensions/wrapped_button'
+
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
   config.wrappers :bootstrap, :tag => 'div', :class => 'control-group', :error_class => 'error' do |b|
@@ -42,4 +44,6 @@ SimpleForm.setup do |config|
   # to learn about the different styles for forms and inputs,
   # buttons and other elements.
   config.default_wrapper = :bootstrap
+  config.label_class = 'control-label'
+  config.form_class = 'simple_form form-horizontal'
 end
