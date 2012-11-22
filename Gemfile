@@ -50,3 +50,4 @@ gem "capybara", ">= 1.1.3", :group => :test
 gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
 gem "bootstrap-sass", ">= 2.1.1.0"
 gem "devise", ">= 2.1.2"
+gem "therubyracer", ">= 0.10.2", :group => :assets, :platform => :ruby
