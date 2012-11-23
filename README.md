@@ -40,7 +40,11 @@ with preferences that not.
 - Database:
   - This application uses SQLite with ActiveRecord.
 - Template Engine: Haml
-- Testing Framework: RSpec and Factory Girl and Cucumber
+- Testing Framework:
+  - RSpec
+  - Factory Girl
+  - Cucumber.
+- Autotesting: Spork and Guard.
 - Test coverage: SimpleCov
 - Front-end Framework: Twitter Bootstrap (Sass)
 - Authentication: Devise

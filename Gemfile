@@ -23,6 +23,15 @@ group :development do
   gem "hpricot", ">= 0.8.6"
   gem "ruby_parser", ">= 3.0.1"
   gem 'rdiscount', :require => false
+  gem 'guard'
+  gem 'rb-inotify', :require => false
+  gem 'rb-fsevent', :require => false
+  gem 'rb-fchange', :require => false
+  gem 'libnotify'
+  gem 'guard-cucumber'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'spork-rails'
 end
 
 group :development, :test do
