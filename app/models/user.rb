@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :login, :email, :password,
                   :password_confirmation, :remember_me, :login_or_email
 
+  validates :login, :presence => true, :uniqueness => true
+  validates :first_name, :last_name, :presence => true
+
   def self.find_first_by_auth_conditions(warden_conditions)
     conditions = warden_conditions.dup
     if login_or_email = conditions.delete(:login_or_email)

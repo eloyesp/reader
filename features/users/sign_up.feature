@@ -14,13 +14,17 @@ Feature: Sign up
       When I sign up with an invalid email
       Then I should see an invalid email message
 
+    Scenario: User signs up without first name
+      When I sign up without a first name
+      Then I should see a missing first name message
+
     Scenario: User signs up without password
       When I sign up without a password
       Then I should see a missing password message
 
     Scenario: User signs up without password confirmation
       When I sign up without a password confirmation
-      Then I should see a missing password confirmation message
+      Then I should see a mismatched password confirmation message
 
     Scenario: User signs up with mismatched password and confirmation
       When I sign up with a mismatched password confirmation

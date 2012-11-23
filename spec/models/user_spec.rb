@@ -17,9 +17,11 @@ describe User do
     User.create!(@attr)
   end
 
-  it "should require an email address" do
-    no_email_user = User.new(@attr.merge(:email => ""))
-    no_email_user.should_not be_valid
+  it "should require many attributes" do
+    [:email, :first_name, :last_name, :login].each do |attribute|
+      invalid_user = User.new(@attr.merge(attribute => ""))
+      invalid_user.should_not be_valid
+    end
   end
 
   it "should accept valid email addresses" do

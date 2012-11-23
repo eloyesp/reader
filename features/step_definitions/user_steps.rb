@@ -97,15 +97,10 @@ When /^I sign up with an invalid email$/ do
   sign_up
 end
 
-When /^I sign up without a password confirmation$/ do
+When /^I sign up without a (.*)$/ do |field_to_empty|
   create_visitor
-  @visitor = @visitor.merge(:password_confirmation => "")
-  sign_up
-end
-
-When /^I sign up without a password$/ do
-  create_visitor
-  @visitor = @visitor.merge(:password => "")
+  field_to_empty = field_to_empty.parameterize('_').to_sym
+  @visitor = @visitor.merge(field_to_empty => "")
   sign_up
 end
 
@@ -169,11 +164,12 @@ Then /^I should see an invalid email message$/ do
   page.should have_content "Email is invalid"
 end
 
-Then /^I should see a missing password message$/ do
-  page.should have_content "Password can't be blank"
+Then /^I should see a missing (.*) message$/ do |field|
+  field.capitalize!
+  page.should have_content "#{field} can't be blank"
 end
 
-Then /^I should see a missing password confirmation message$/ do
+Then /^I should see a mismatched password confirmation message$/ do
   page.should have_content "Password doesn't match confirmation"
 end
 
