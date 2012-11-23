@@ -46,12 +46,16 @@ with preferences that not.
 - Authentication: Devise
 - Email: The application is configured to send email using a Gmail account.
 
+## Models ##
+
+### User ###
+
+The user model use devise with a custom login that ask for email or login
+(username), and require some user data like both names.
+
 ## TODO ##
 
 - User:
-  - first name (required, max length 50)
-  - last name (required, max length 50)
-  - login (required, max length 50)
   - OAuth2 authorization with providers:
     - Google
     - Twitter
