@@ -1,8 +1,13 @@
 ### UTILITY METHODS ###
 
 def create_visitor
-  @visitor ||= { :name => "Testy McUserton", :email => "example@example.com",
-    :password => "please", :password_confirmation => "please" }
+  @visitor ||= {
+    first_name: "Testy",
+    last_name: "McUserton",
+    login: "mctesty",
+    email: "example@example.com",
+    password: "please",
+    password_confirmation: "please" }
 end
 
 def find_user
@@ -19,7 +24,8 @@ end
 def create_user
   create_visitor
   delete_user
-  @user = FactoryGirl.create(:user, email: @visitor[:email])
+  @user = FactoryGirl.create(:user, email: @visitor[:email],
+                                    login: @visitor[:login])
 end
 
 def delete_user
@@ -30,7 +36,9 @@ end
 def sign_up
   delete_user
   visit '/users/sign_up'
-  fill_in "Name", :with => @visitor[:name]
+  fill_in "First name", :with => @visitor[:first_name]
+  fill_in "Last name", :with => @visitor[:last_name]
+  fill_in "Login", :with => @visitor[:login]
   fill_in "Email", :with => @visitor[:email]
   fill_in "user_password", :with => @visitor[:password]
   fill_in "Password confirmation", :with => @visitor[:password_confirmation]
@@ -38,9 +46,9 @@ def sign_up
   find_user
 end
 
-def sign_in
+def sign_in login_type = :email
   visit '/users/sign_in'
-  fill_in "Email", :with => @visitor[:email]
+  fill_in "Login or email", :with => @visitor[login_type]
   fill_in "Password", :with => @visitor[:password]
   click_button "Sign in"
 end
@@ -69,9 +77,9 @@ Given /^I exist as an unconfirmed user$/ do
 end
 
 ### WHEN ###
-When /^I sign in with valid credentials$/ do
+When /^I sign in with (email|login) and password$/ do |login_type|
   create_visitor
-  sign_in
+  sign_in login_type.to_sym
 end
 
 When /^I sign out$/ do
@@ -89,15 +97,10 @@ When /^I sign up with an invalid email$/ do
   sign_up
 end
 
-When /^I sign up without a password confirmation$/ do
+When /^I sign up without a (.*)$/ do |field_to_empty|
   create_visitor
-  @visitor = @visitor.merge(:password_confirmation => "")
-  sign_up
-end
-
-When /^I sign up without a password$/ do
-  create_visitor
-  @visitor = @visitor.merge(:password => "")
+  field_to_empty = field_to_empty.parameterize('_').to_sym
+  @visitor = @visitor.merge(field_to_empty => "")
   sign_up
 end
 
@@ -123,9 +126,9 @@ end
 
 When /^I edit my account details$/ do
   click_link "Edit account"
-  fill_in "Name", :with => "newname"
+  fill_in "First name", :with => "newname"
   fill_in "Current password", :with => @visitor[:password]
-  click_button "Update"
+  click_button "Save changes"
 end
 
 When /^I look at the list of users$/ do
@@ -161,11 +164,12 @@ Then /^I should see an invalid email message$/ do
   page.should have_content "Email is invalid"
 end
 
-Then /^I should see a missing password message$/ do
-  page.should have_content "Password can't be blank"
+Then /^I should see a missing (.*) message$/ do |field|
+  field.capitalize!
+  page.should have_content "#{field} can't be blank"
 end
 
-Then /^I should see a missing password confirmation message$/ do
+Then /^I should see a mismatched password confirmation message$/ do
   page.should have_content "Password doesn't match confirmation"
 end
 
