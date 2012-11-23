@@ -7,6 +7,9 @@ gem "haml", ">= 3.1.7"
 gem "devise", ">= 2.1.2"
 gem "bootstrap-sass", ">= 2.1.1.0"
 gem 'simple_form'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
