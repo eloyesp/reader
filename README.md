@@ -52,13 +52,11 @@ with preferences that not.
 
 The user model use devise with a custom login that ask for email or login
 (username), and require some user data like both names.
+It also allows you to login ussing gmail or twitter.
 
 ## TODO ##
 
 - User:
-  - OAuth2 authorization with providers:
-    - Google
-    - Twitter
   - Edit page
   - Avatar uploading
     - Cropping to 400x400, 200x200, 100x100
