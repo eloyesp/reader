@@ -82,6 +82,17 @@ When /^I sign in with (email|login) and password$/ do |login_type|
   sign_in login_type.to_sym
 end
 
+When /^I sign in ussing (.*)$/ do |provider|
+  provider =
+    case provider
+    when "google"
+      "google_oauth2"
+    when "twitter"
+      "twitter"
+    end
+  visit "/users/auth/#{provider}"
+end
+
 When /^I sign out$/ do
   visit '/users/sign_out'
 end
@@ -154,6 +165,10 @@ end
 
 Then /^I see a successful sign in message$/ do
   page.should have_content "Signed in successfully."
+end
+
+Then /^I see a successful authentication message\.$/ do
+  page.should have_content "Successfully authenticated"
 end
 
 Then /^I should see a successful sign up message$/ do
