@@ -32,6 +32,7 @@ group :development do
   gem 'guard-spork'
   gem 'guard-rspec'
   gem 'spork-rails'
+  gem 'guard-bundler'
 end
 
 group :development, :test do
@@ -49,3 +50,4 @@ group :test do
   gem "capybara", ">= 1.1.3"
   gem 'simplecov', :require => false
 end
+
