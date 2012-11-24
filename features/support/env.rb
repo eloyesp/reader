@@ -76,7 +76,8 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-
+  ActiveSupport::Dependencies.clear
+  #  ActiveRecord::Base.instantiate_observers
 end
 
 # --- Instructions ---
@@ -107,3 +108,4 @@ end
 #
 # These instructions should self-destruct in 10 seconds.  If they don't, feel
 # free to delete them.
+
