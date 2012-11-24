@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  mount_uploader :avatar, AvatarUploader
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -11,7 +14,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :first_name, :last_name, :login, :email, :password,
                   :password_confirmation, :remember_me, :login_or_email,
-                  :provider, :uid
+                  :provider, :uid, :avatar
 
   validates :login, :presence => true, :uniqueness => true
   validates :first_name, :last_name, :presence => true
@@ -64,3 +67,4 @@ class User < ActiveRecord::Base
   end
 
 end
+

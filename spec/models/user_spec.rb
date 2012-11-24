@@ -104,4 +104,18 @@ describe User do
 
   end
 
+  describe "avatar" do
+
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+
+    it "can upload an avatar" do
+      @user.update_attributes avatar: fixture_file('avatar.jpg')
+      expect(@user.avatar.url).to match(/system.*avatar.jpg/)
+    end
+
+  end
+
 end
+
