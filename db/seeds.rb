@@ -5,10 +5,18 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+puts 'Seeding default profiles'
+{basic: 10,  medium: 20, premium: 100}.each do |name, limit|
+  Profile.find_or_create_by_name!(name, max_channels_allowed: limit)
+end
+
 puts 'SETTING UP DEFAULT USER LOGIN'
-user = User.create! :name => 'First User', :email => 'user@example.com', :password => 'please', :password_confirmation => 'please'
+
+user = User.find_or_create_by_email! 'user@example.com', :login => 'First User',
+  :password => 'please', :password_confirmation => 'please',
+  :first_name => 'first_name', :last_name => "last_name",
+  :profile => Profile.find_by_name('basic')
 user.confirm!
-puts 'New user created: ' << user.name
-user2 = User.create! :name => 'Second User', :email => 'user2@example.com', :password => 'please', :password_confirmation => 'please'
-user2.confirm!
-puts 'New user created: ' << user2.name
+puts 'Defaul user created: ' << user.login
+

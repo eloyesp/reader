@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121124145254) do
+ActiveRecord::Schema.define(:version => 20121125205033) do
+
+  create_table "profiles", :force => true do |t|
+    t.string   "name"
+    t.integer  "max_channels_allowed"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "profiles", ["name"], :name => "index_profiles_on_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -36,10 +45,12 @@ ActiveRecord::Schema.define(:version => 20121124145254) do
     t.string   "provider"
     t.string   "uid"
     t.string   "avatar"
+    t.integer  "profile_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+  add_index "users", ["profile_id"], :name => "index_users_on_profile_id"
   add_index "users", ["provider"], :name => "index_users_on_provider"
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["uid"], :name => "index_users_on_uid", :unique => true

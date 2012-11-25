@@ -56,18 +56,19 @@ with preferences that not.
 
 The user model use devise with a custom login that ask for email or login
 (username), and require some user data like both names.
-It also allows you to login ussing gmail or twitter.
+
+It also allows you to login ussing gmail or twitter, if there is a user with the
+same email account, it will use the same.
+
 The user can also upload an avatar, that is displayed in the navbar when logged
 in. The avatar is cropped to different sizes. (I added 30x30 because it looks
 nice in the navbar).
 
+Users have a profile, that limit how many channels can have. This attribute is
+protected for security reasons.
+
 ## TODO ##
 
-- User:
-  - Profile type
-    - basic - 10 channels
-    - medium - 20 channels
-    - premium - 100 channels
 - Channels list:
   - User can have many channels
   - CRUD
@@ -101,6 +102,8 @@ nice in the navbar).
   - one time a day
   - 5 last feeds
 - The user should customize cropping to fit the face.
+- The user need a way to upgrade or downgrade the account, but this is related
+  with billing, and is not implemented
 
 ## License ##
 

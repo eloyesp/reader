@@ -117,5 +117,30 @@ describe User do
 
   end
 
+  describe 'profile' do
+
+    before(:each) do
+      @basic_profile = FactoryGirl.create :profile
+      @other_profile = FactoryGirl.create :profile, name: 'other'
+      @user = User.create!(@attr)
+    end
+
+    it "can be changed" do
+      @user.profile = @other_profile
+      expect(@user.profile).to be(@other_profile)
+    end
+
+    it "is protected" do
+      expect {
+        @user.update_attributes profile: @other_profile
+      }.to raise_exception(ActiveModel::MassAssignmentSecurity::Error)
+      expect(@user.profile).to eq(@basic_profile)
+    end
+
+    it "defaults to basic" do
+      expect(@user.profile).to eq(@basic_profile)
+    end
+
+  end
 end
 

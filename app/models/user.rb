@@ -1,5 +1,11 @@
 class User < ActiveRecord::Base
 
+  belongs_to :profile
+
+  before_create do |user|
+    user.profile ||= Profile.find_by_name(:basic)
+  end
+
   mount_uploader :avatar, AvatarUploader
 
   # Include default devise modules. Others available are:
