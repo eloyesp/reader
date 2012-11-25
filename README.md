@@ -57,13 +57,13 @@ with preferences that not.
 The user model use devise with a custom login that ask for email or login
 (username), and require some user data like both names.
 It also allows you to login ussing gmail or twitter.
+The user can also upload an avatar, that is displayed in the navbar when logged
+in. The avatar is cropped to different sizes. (I added 30x30 because it looks
+nice in the navbar).
 
 ## TODO ##
 
 - User:
-  - Edit page
-  - Avatar uploading
-    - Cropping to 400x400, 200x200, 100x100
   - Profile type
     - basic - 10 channels
     - medium - 20 channels
@@ -76,7 +76,7 @@ It also allows you to login ussing gmail or twitter.
     - URL  should respond 200 OK response code from HTTP protocol
     - feed should contain valid RSS/Atom (not html, text, etc.)
   - channel name (title)
-    - take channel name from <title></title>
+    - take channel name from \<title\>\</title\>
     - User can edit channel title
 - Articles list
   - channel has many articles
@@ -100,6 +100,7 @@ It also allows you to login ussing gmail or twitter.
 - Send emails to user by cron
   - one time a day
   - 5 last feeds
+- The user should customize cropping to fit the face.
 
 ## License ##
 
