@@ -10,6 +10,6 @@
   - else
     = form.input :password, :hint => "Leave blank if you don't want to change it", :autocomplete => "off"
     = form.input :password_confirmation
-    = form.input :current_password, :hint => "We need your current password to confirm your changes"
+    = form.input :current_password, :hint => "We need your current password to confirm your changes if you change sensible data (email or password)"
   = form.wrapped_button :submit
 
