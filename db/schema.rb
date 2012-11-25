@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125205033) do
+ActiveRecord::Schema.define(:version => 20121125221846) do
+
+  create_table "channels", :force => true do |t|
+    t.string   "feed_url"
+    t.string   "title"
+    t.text     "description"
+    t.string   "url"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "channels", ["feed_url"], :name => "index_channels_on_feed_url", :unique => true
 
   create_table "profiles", :force => true do |t|
     t.string   "name"
@@ -21,6 +32,17 @@ ActiveRecord::Schema.define(:version => 20121125205033) do
   end
 
   add_index "profiles", ["name"], :name => "index_profiles_on_name", :unique => true
+
+  create_table "suscriptions", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "channel_id"
+    t.string   "custom_title"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "suscriptions", ["channel_id"], :name => "index_suscriptions_on_channel_id"
+  add_index "suscriptions", ["user_id"], :name => "index_suscriptions_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -56,3 +78,4 @@ ActiveRecord::Schema.define(:version => 20121125205033) do
   add_index "users", ["uid"], :name => "index_users_on_uid", :unique => true
 
 end
+

@@ -1,4 +1,7 @@
 Reader::Application.routes.draw do
+  resources :channels
+
+
   authenticated :user do
     root :to => 'home#index'
   end

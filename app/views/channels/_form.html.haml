@@ -1,0 +1,12 @@
+= simple_form_for(@channel) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :feed_url
+    = f.input :title
+    = f.input :description
+    = f.input :suscription_id
+    = f.input :url
+
+  .form-actions
+    = f.button :submit
