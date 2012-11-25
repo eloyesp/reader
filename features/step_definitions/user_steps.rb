@@ -90,7 +90,7 @@ When /^I sign in ussing (.*)$/ do |provider|
     when "twitter"
       "twitter"
     end
-  visit "/users/auth/#{provider}"
+  visit user_omniauth_authorize_path(provider)
 end
 
 When /^I sign out$/ do
