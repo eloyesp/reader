@@ -104,6 +104,7 @@ protected for security reasons.
 - The user should customize cropping to fit the face.
 - The user need a way to upgrade or downgrade the account, but this is related
   with billing, and is not implemented
+- The specs use DatabaseCleaner and transactional fixtures. That smells.
 
 ## License ##
 
