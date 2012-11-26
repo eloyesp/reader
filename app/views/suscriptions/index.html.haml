@@ -1,0 +1,25 @@
+%h1 Listing suscriptions
+
+%table
+  %tr
+    %th Feed url
+    %th Title
+    %th Description
+    %th Url
+    %th
+    %th
+    %th
+
+  - @suscriptions.each do |suscription|
+    %tr
+      %td= suscription.feed_url
+      %td= suscription.title
+      %td= suscription.description
+      %td= suscription.url
+      %td= link_to 'Show', suscription
+      %td= link_to 'Edit', edit_suscription_path(suscription)
+      %td= link_to 'Destroy', suscription, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Suscription', new_suscription_path

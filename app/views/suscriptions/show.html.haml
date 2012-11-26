@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Feed url:
+  = @suscription.feed_url
+%p
+  %b Title:
+  = @suscription.title
+%p
+  %b Description:
+  = @suscription.description
+%p
+  %b Url:
+  = @suscription.url
+
+= link_to 'Edit', edit_suscription_path(@suscription)
+\|
+= link_to 'Back', suscriptions_path

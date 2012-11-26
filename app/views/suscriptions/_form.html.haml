@@ -1,0 +1,9 @@
+= semantic_form_for @suscription do |f|
+  = f.inputs do
+    = f.input :feed_url
+    = f.input :title
+    = f.input :description
+    = f.input :url
+
+  = f.actions do
+    = f.action :submit, :as => :input
