@@ -4,6 +4,7 @@ FactoryGirl.define do
   factory :suscription do
     user nil
     channel nil
-    custom_title "MyString"
+    custom_title ""
   end
 end
+
