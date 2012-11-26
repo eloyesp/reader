@@ -25,7 +25,7 @@ group :development do
   gem "haml-rails", ">= 0.3.5"
   gem "hpricot", ">= 0.8.6"
   gem "ruby_parser", ">= 3.0.1"
-  gem 'rdiscount', :require => false
+  gem 'rdiscount'
   gem 'guard'
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
@@ -45,6 +45,7 @@ group :development, :test do
   gem 'pry-doc'
   gem "rspec-rails", ">= 2.11.4"
   gem "factory_girl_rails", ">= 4.1.0"
+  gem 'pry-debugger'
 end
 
 group :test do
