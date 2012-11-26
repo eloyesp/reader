@@ -6,7 +6,8 @@ gem 'jquery-rails'
 gem "haml", ">= 3.1.7"
 gem "devise", ">= 2.1.2"
 gem "bootstrap-sass", ">= 2.1.1.0"
-gem 'simple_form'
+gem 'simple_form' # TODO: delete-this-gem
+gem 'formtastic-bootstrap'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
@@ -35,9 +36,11 @@ group :development do
   gem 'guard-rspec'
   gem 'spork-rails'
   gem 'guard-bundler'
+  gem 'quiet_assets'
 end
 
 group :development, :test do
+  gem 'thin'
   gem 'pry'
   gem 'pry-doc'
   gem "rspec-rails", ">= 2.11.4"
