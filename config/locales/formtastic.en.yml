@@ -1,0 +1,21 @@
+en:
+  formtastic:
+    actions:
+      suscription:
+        create: "Suscribe"
+
+
+#    labels:
+#      title: "Title"  # Default global value
+#      article:
+#        body: "Article content"
+#      post:
+#        new:
+#          title: "Choose a title..."
+#          body: "Write something..."
+#        edit:
+#          title: "Edit title"
+#          body: "Edit body"
+#      suscription:
+#        create: "Suscribe"
+

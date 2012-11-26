@@ -7,7 +7,6 @@ en:
       user:
         create: "Sign up"
         update: "Save changes"
-      channel:
+      suscription:
         create: "Suscribe"
-        update: "Save changes"
 

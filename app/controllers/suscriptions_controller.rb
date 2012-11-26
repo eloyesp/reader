@@ -44,7 +44,7 @@ class SuscriptionsController < ApplicationController
 
     respond_to do |format|
       if @suscription.save
-        format.html { redirect_to @suscription, notice: 'Suscription was successfully created.' }
+        format.html { redirect_to @suscription, notice: "You have successfully suscripted to #{@suscription.title}" }
         format.json { render json: @suscription, status: :created, location: @suscription }
       else
         format.html { render action: "new" }
@@ -81,3 +81,4 @@ class SuscriptionsController < ApplicationController
     end
   end
 end
+

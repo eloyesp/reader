@@ -20,6 +20,11 @@ require 'spec_helper'
 
 describe SuscriptionsController do
 
+  before(:each) do
+    @user = FactoryGirl.create(:user)
+    sign_in @user
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # Suscription. As you add validations to Suscription, be sure to
   # update the return value of this method accordingly.
@@ -162,3 +167,4 @@ describe SuscriptionsController do
   end
 
 end
+
