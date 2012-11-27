@@ -1,8 +1,8 @@
 module SuscriptionSteps
   def new_channel
     @new_channel ||= {
-      feed_url: 'www.coolfeed.com/feed.rss',
-      feed_title: 'Cool Feed'
+      feed_url: 'http://www.feedforall.com/sample.xml',
+      feed_title: 'FeedForAll Sample Feed'
     }
   end
 

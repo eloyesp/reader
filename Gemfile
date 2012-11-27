@@ -13,6 +13,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-twitter'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'simple-rss'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -55,5 +56,7 @@ group :test do
   gem "launchy", ">= 2.1.2"
   gem "capybara", ">= 1.1.3"
   gem 'simplecov', :require => false
+  gem 'vcr'
+  gem 'webmock', :require => false
 end
 

@@ -19,6 +19,7 @@ Spork.prefork do
   SimpleCov.start 'rails'
 
   require 'cucumber/rails'
+  require 'vcr'
 
   # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
   # order to ease the transition to Capybara we set the default here. If you'd
@@ -71,6 +72,14 @@ Spork.prefork do
   # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
   Cucumber::Rails::Database.javascript_strategy = :truncation
 
+  VCR.configure do |c|
+    c.cassette_library_dir = Rails.root.join 'spec', 'cassettes'
+    c.hook_into :webmock # or :fakeweb
+  end
+
+  VCR.cucumber_tags do |t|
+    t.tag  '@vcr', :use_scenario_name => true
+  end
 
 end
 
