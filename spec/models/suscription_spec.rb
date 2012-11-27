@@ -1,25 +1,22 @@
 require 'spec_helper'
 
-describe Suscription do
-
-  before(:each) do
-    @suscription = create :suscription
-  end
+describe Suscription, :vcr => true do
 
   it "should handle feed_url" do
-    @suscription.feed_url = "www.samplefeed.com"
-    expect(@suscription.feed_url).to eq("www.samplefeed.com")
+    feed_url = "http://www.feedforall.com/sample.xml"
+    @suscription = Suscription.new
+    @suscription.feed_url = feed_url
+    expect(@suscription.feed_url).to eq(feed_url)
   end
 
   describe "title" do
 
     before(:each) do
-      @channel = create :channel, title: "foo"
-      @suscription = create :suscription, channel: @channel
+      @suscription = create :suscription
     end
 
     it "defaults to channel title" do
-      expect(@suscription.title).to eq("foo")
+      expect(@suscription.title).to eq("FeedForAll Sample Feed")
     end
 
     it "uses custom_title if defined" do

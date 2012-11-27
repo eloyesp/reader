@@ -5,6 +5,7 @@ FactoryGirl.define do
     user nil
     channel nil
     custom_title ""
+    feed_url "http://www.feedforall.com/sample.xml"
   end
 end
 

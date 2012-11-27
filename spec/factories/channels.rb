@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :channel do
-    feed_url "www.example.com/fakefeed.rss"
+    feed_url "http://www.feedforall.com/sample.xml"
   end
 end
 
