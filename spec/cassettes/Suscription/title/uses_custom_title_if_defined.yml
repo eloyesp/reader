@@ -17,7 +17,7 @@ http_interactions:
       message: OK
     headers:
       Date:
-      - Tue, 27 Nov 2012 21:47:14 GMT
+      - Tue, 27 Nov 2012 21:47:10 GMT
       Server:
       - Apache/2.2.23
       Last-Modified:
@@ -137,5 +137,5 @@ http_interactions:
         \     <pubDate>Tue, 19 Oct 2004 11:08:56 -0400</pubDate>\r\n    </item>\r\n
         \ </channel>\r\n</rss>"
     http_version: 
-  recorded_at: Tue, 27 Nov 2012 21:47:22 GMT
+  recorded_at: Tue, 27 Nov 2012 21:47:17 GMT
 recorded_with: VCR 2.3.0
