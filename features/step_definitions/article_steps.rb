@@ -16,6 +16,13 @@ World(ArticleSteps)
 
 ### GIVEN ###
 
+Given /^I am on an article$/ do
+  visit article_path(article)
+end
+
+When /^I mark it with a star\.$/ do
+  click_link "Add star"
+end
 
 ### WHEN ###
 
@@ -38,5 +45,13 @@ end
 Then /^I see my comment last\.$/ do
   expect(page).to have_content(new_comment[:title])
   expect(page).to have_content(new_comment[:comment])
+end
+
+Then /^I see a successful starred message\.$/ do
+  expect(page).to have_content('The article is now starred.')
+end
+
+Then /^I see the star\.$/ do
+  expect(page).to have_selector('i.icon-star-empty')
 end
 

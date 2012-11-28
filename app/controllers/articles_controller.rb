@@ -23,5 +23,17 @@ class ArticlesController < ApplicationController
     end
   end
 
+  # GET /articles/1/add_star
+  def add_star
+    @article  = Article.find(params[:id])
+    @article.starred_by << current_user
+    flash[:notice] = 'The article is now starred.'
+
+    respond_to do |format|
+      format.html render 'show'
+    end
+  end
+
+
 end
 
