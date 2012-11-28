@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125221846) do
+ActiveRecord::Schema.define(:version => 20121128003825) do
+
+  create_table "articles", :force => true do |t|
+    t.integer  "channel_id"
+    t.string   "title"
+    t.string   "link"
+    t.text     "description"
+    t.date     "published_date"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "articles", ["channel_id"], :name => "index_articles_on_channel_id"
+  add_index "articles", ["title"], :name => "index_articles_on_title"
 
   create_table "channels", :force => true do |t|
     t.string   "feed_url"
@@ -78,4 +91,3 @@ ActiveRecord::Schema.define(:version => 20121125221846) do
   add_index "users", ["uid"], :name => "index_users_on_uid", :unique => true
 
 end
-

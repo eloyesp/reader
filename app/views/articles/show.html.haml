@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Channel:
+  = @article.channel
+%p
+  %b Title:
+  = @article.title
+%p
+  %b Link:
+  = @article.link
+%p
+  %b Description:
+  = @article.description
+%p
+  %b Published date:
+  = @article.published_date
+
+= link_to 'Edit', edit_article_path(@article)
+\|
+= link_to 'Back', articles_path

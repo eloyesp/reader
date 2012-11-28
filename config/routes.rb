@@ -1,4 +1,7 @@
 Reader::Application.routes.draw do
+  resources :articles
+
+
   resources :suscriptions
 
   authenticated :user do
