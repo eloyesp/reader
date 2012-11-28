@@ -3,7 +3,8 @@ Reader::Application.routes.draw do
   resources :articles, :only => [:index, :show] do
     resources :comments, :only => [:create, :update, :destroy]
     member do
-      get 'add_star'
+      put 'add_star'
+      put 'remove_star'
     end
   end
 

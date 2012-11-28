@@ -79,12 +79,11 @@ and to ease testing.
 
 ## Article ##
 
-Articles are commentable.
+Articles are commentable and can be marked with a star.
 
 ## TODO ##
 
 - Articles list
-  - user can mark article with a star
   - Update feeds each 5 minutes (cron)
 - Add search by article and channel:
   - summary
@@ -105,6 +104,8 @@ Articles are commentable.
 whould be done implementing HTMLEntities in the FeedFetcher class.
 - FeedFetcher should not give access to items directly, it should give access to
 somethin like an article (but AR could be slow).
+- The link to add or remove stars should be extracted to a helper, and used on
+  index
 
 ## License ##
 

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
   belongs_to :profile
+  has_and_belongs_to_many :starred_articles, class_name: 'Article'
 
   before_create do |user|
     user.profile ||= Profile.find_by_name(:basic)

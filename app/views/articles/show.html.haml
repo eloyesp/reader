@@ -2,12 +2,13 @@
 
 
 %h1
-  %a.btn.btn-small(title="Add star"){:href => add_star_article_path(@article) }
-    %i.icon-star(alt="Star")
+  - if @star
+    = link_to remove_star_article_path(@article), method: :put, title: "Remove star", class: "btn btn-small" do
+      %i.icon-star-empty(alt="Empty-Star")
+  - else
+    = link_to add_star_article_path(@article), method: :put, title: "Add star", class: "btn btn-small" do
+      %i.icon-star(alt="Star")
   = @article.title
-
--# {:class => [@item.type, @item == @sortcol && [:sort, @sortdir]] }  ; url_for(@article, :add_star => true
-
 
 %p
   %b Description:

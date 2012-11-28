@@ -142,5 +142,17 @@ describe User do
     end
 
   end
+
+  describe 'starred_articles' do
+
+    it 'can mark articles as starred' do
+      @user = create :user
+      expect(@user.starred_articles).to be_empty
+      @article = create(:article)
+      @user.starred_articles << @article
+      expect(@user.starred_articles).to include(@article)
+    end
+
+  end
 end
 
