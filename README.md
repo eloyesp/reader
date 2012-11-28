@@ -77,10 +77,13 @@ after creations ussing a FeedFetcher. This class is the only one related to
 fetching to ease changing the fetcher and parser mechanism (SimpleRSS actualy),
 and to ease testing.
 
+## Article ##
+
+Articles are commentable.
+
 ## TODO ##
 
 - Articles list
-  - user can leave comments for each article
   - user can mark article with a star
   - Update feeds each 5 minutes (cron)
 - Add search by article and channel:
