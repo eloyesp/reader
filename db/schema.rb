@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128032530) do
+ActiveRecord::Schema.define(:version => 20121128155621) do
 
   create_table "articles", :force => true do |t|
     t.integer  "channel_id"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(:version => 20121128032530) do
 
   add_index "articles", ["channel_id"], :name => "index_articles_on_channel_id"
   add_index "articles", ["title"], :name => "index_articles_on_title"
+
+  create_table "articles_users", :force => true do |t|
+    t.integer "article_id"
+    t.integer "user_id"
+  end
+
+  add_index "articles_users", ["article_id"], :name => "index_articles_users_on_article_id"
+  add_index "articles_users", ["user_id"], :name => "index_articles_users_on_user_id"
 
   create_table "channels", :force => true do |t|
     t.string   "feed_url"
