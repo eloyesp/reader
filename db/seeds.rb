@@ -13,10 +13,13 @@ end
 
 puts 'SETTING UP DEFAULT USER LOGIN'
 
-user = User.find_or_create_by_email! 'user@example.com', :login => 'First User',
-  :password => 'please', :password_confirmation => 'please',
-  :first_name => 'first_name', :last_name => "last_name",
-  :profile => Profile.find_by_name('basic')
+user = User.find_or_create_by_email! 'user@example.com',
+  :login => 'First User', :password => 'please',
+  :password_confirmation => 'please', :first_name => 'first_name',
+  :last_name => "last_name"
+
+user.profile = Profile.find_by_name('basic')
 user.confirm!
+
 puts 'Defaul user created: ' << user.login
 
