@@ -14,6 +14,7 @@ gem 'omniauth-twitter'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'simple-rss'
+gem 'acts_as_commentable', '~> 3.0'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
