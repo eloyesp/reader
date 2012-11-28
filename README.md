@@ -79,12 +79,11 @@ and to ease testing.
 
 ## Article ##
 
-Articles are commentable and can be marked with a star.
+Articles are commentable and can be marked with a star. They are updated each 5
+minutes (ussing cron with whenever)
 
 ## TODO ##
 
-- Articles list
-  - Update feeds each 5 minutes (cron)
 - Add search by article and channel:
   - summary
   - title

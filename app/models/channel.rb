@@ -16,6 +16,10 @@ class Channel < ActiveRecord::Base
     end
   end
 
+  def self.update_all
+    Channel.find_each { |c| c.fetch_articles }
+  end
+
   private
 
     def fetcher
