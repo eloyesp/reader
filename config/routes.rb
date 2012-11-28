@@ -1,6 +1,8 @@
 Reader::Application.routes.draw do
-  resources :articles
 
+  resources :articles, :only => [:index, :show] do
+    resources :comments, :only => [:create, :update, :destroy]
+  end
 
   resources :suscriptions
 

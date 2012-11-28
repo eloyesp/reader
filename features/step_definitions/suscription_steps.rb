@@ -17,6 +17,14 @@ end
 
 World(SuscriptionSteps)
 
+### GIVEN ###
+
+Given /^I am suscribed to a channel$/ do
+  visit new_suscription_path
+  fill_in "Feed url", with: new_channel[:feed_url]
+  click_button "Suscribe"
+end
+
 ### WHEN ###
 
 When /^I add a suscription to a new channel\.$/ do
@@ -24,6 +32,8 @@ When /^I add a suscription to a new channel\.$/ do
   fill_in "Feed url", with: new_channel[:feed_url]
   click_button "Suscribe"
 end
+
+### THEN ###
 
 Then /^I see a successful suscribed to channel message\.$/ do
   expect(page).to have_content("You have successfully suscripted to #{feed_title}")
