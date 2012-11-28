@@ -7,7 +7,7 @@ Reader::Application.routes.draw do
   resources :suscriptions
 
   authenticated :user do
-    root :to => 'home#index'
+    root :to => 'suscriptions#index'
   end
   root :to => "home#index"
 

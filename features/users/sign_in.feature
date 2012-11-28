@@ -21,7 +21,7 @@ Feature: Sign in
         And I am not logged in
       When I sign in with email and password
       Then I see a successful sign in message
-      When I return to the site
+      Then I am at the suscriptions page
       Then I should be signed in
 
     Scenario: User signs in successfully ussing login
@@ -29,7 +29,7 @@ Feature: Sign in
         And I am not logged in
       When I sign in with login and password
       Then I see a successful sign in message
-      When I return to the site
+      Then I am at the suscriptions page
       Then I should be signed in
 
     Scenario: User enters wrong email

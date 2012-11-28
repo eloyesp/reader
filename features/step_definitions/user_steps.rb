@@ -219,3 +219,7 @@ Then /^I see my new avatar$/ do
   expect(page).to have_selector("img.avatar")
 end
 
+Then /^I am at the suscriptions page$/ do
+  expect(page).to have_content("suscriptions")
+end
+
