@@ -67,26 +67,19 @@ nice in the navbar).
 Users have a profile, that limit how many channels can have. This attribute is
 protected for security reasons.
 
+## Suscription ##
+
+Instead of channels, the user manage suscriptions (that delegate to channel when
+appropiate).
+
+Channels validates correctness of the supplied feed url and, fetch articles
+after creations ussing a FeedFetcher. This class is the only one related to
+fetching to ease changing the fetcher and parser mechanism (SimpleRSS actualy),
+and to ease testing.
+
 ## TODO ##
 
-- Channels list:
-  - User can have many channels
-  - CRUD
-  - channel attributes
-    - valid URL to RSS/Atom
-    - URL  should respond 200 OK response code from HTTP protocol
-    - feed should contain valid RSS/Atom (not html, text, etc.)
-  - channel name (title)
-    - take channel name from \<title\>\</title\>
-    - User can edit channel title
 - Articles list
-  - channel has many articles
-  - articles are fetched automatically
-  - Article attributes:
-    - Title
-    - link
-    - description
-    - pubDate
   - user can leave comments for each article
   - user can mark article with a star
   - Update feeds each 5 minutes (cron)
@@ -105,6 +98,10 @@ protected for security reasons.
 - The user need a way to upgrade or downgrade the account, but this is related
   with billing, and is not implemented
 - The specs use DatabaseCleaner and transactional fixtures. That smells.
+- The articles are not displayed with html_safe, so it should be corrected. this
+whould be done implementing HTMLEntities in the FeedFetcher class.
+- FeedFetcher should not give access to items directly, it should give access to
+somethin like an article (but AR could be slow).
 
 ## License ##
 

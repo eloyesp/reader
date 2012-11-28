@@ -5,14 +5,23 @@
   = @suscription.feed_url
 %p
   %b Title:
-  = @suscription.title
+  = link_to @suscription.title, @suscription.url
 %p
   %b Description:
   = @suscription.description
-%p
-  %b Url:
-  = @suscription.url
+
+%h2 Articles
+%ol
+  - @articles.each do |article|
+    %li.article
+      %h3= link_to article.title, article
+      %p=  article.description
+
+
+
+
 
 = link_to 'Edit', edit_suscription_path(@suscription)
 \|
 = link_to 'Back', suscriptions_path
+

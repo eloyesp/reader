@@ -14,6 +14,7 @@ class SuscriptionsController < ApplicationController
   # GET /suscriptions/1.json
   def show
     @suscription = Suscription.find(params[:id])
+    @articles    = @suscription.articles
 
     respond_to do |format|
       format.html # show.html.erb

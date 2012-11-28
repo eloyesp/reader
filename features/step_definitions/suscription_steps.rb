@@ -9,6 +9,10 @@ module SuscriptionSteps
   def feed_title
     new_channel[:feed_title]
   end
+
+  def sample_post
+    "RSS Solutions for Restaurants"
+  end
 end
 
 World(SuscriptionSteps)
@@ -26,7 +30,6 @@ Then /^I see a successful suscribed to channel message\.$/ do
 end
 
 Then /^I see this channel posts\.$/ do
-  pending
-  expect(page).to have_content(feed_title)
+  expect(page).to have_content(sample_post)
 end
 

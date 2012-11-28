@@ -12,6 +12,14 @@ class FeedFetcher
     @valid_feed
   end
 
+  def each_article
+    return unless valid_feed?
+
+    feed.items.each do |item|
+      yield item
+    end
+  end
+
   private
 
     def feed
