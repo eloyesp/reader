@@ -1,5 +1,9 @@
 Reader::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
   resources :articles, :only => [:index, :show] do
     resources :comments, :only => [:create, :update, :destroy]
     member do

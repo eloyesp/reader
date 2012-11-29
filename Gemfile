@@ -17,6 +17,7 @@ gem 'simple-rss'
 gem 'acts_as_commentable', '~> 3.0'
 gem 'whenever'
 gem 'pg_search'
+gem 'activeadmin'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
