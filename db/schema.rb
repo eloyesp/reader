@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121128155621) do
+ActiveRecord::Schema.define(:version => 20121129031547) do
 
   create_table "articles", :force => true do |t|
     t.integer  "channel_id"
@@ -58,6 +58,14 @@ ActiveRecord::Schema.define(:version => 20121128155621) do
   add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
   add_index "comments", ["commentable_type"], :name => "index_comments_on_commentable_type"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
+
+  create_table "pg_search_documents", :force => true do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "profiles", :force => true do |t|
     t.string   "name"

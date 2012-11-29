@@ -1,4 +1,6 @@
 class Channel < ActiveRecord::Base
+  include PgSearch
+  multisearchable :against => [:title, :description]
 
   has_many :articles
 
