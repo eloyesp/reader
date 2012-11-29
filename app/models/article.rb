@@ -1,4 +1,7 @@
 class Article < ActiveRecord::Base
+  include PgSearch
+  multisearchable :against => [:title, :description]
+
   belongs_to :channel
   attr_accessible :description, :link, :published_date, :title
   acts_as_commentable
