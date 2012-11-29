@@ -44,6 +44,11 @@ group :development do
   gem 'quiet_assets'
 end
 
+group :deployment do
+  gem 'capistrano'
+  gem 'rvm-capistrano'
+end
+
 group :development, :test do
   gem 'thin'
   gem 'pry'
