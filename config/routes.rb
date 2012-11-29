@@ -19,5 +19,6 @@ Reader::Application.routes.draw do
   resources :users
 
   match '/search' => 'home#search', :via => [:get, :post]
+  match '*error' => 'home#error'
 end
 
