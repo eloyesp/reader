@@ -1,4 +1,4 @@
-# Reader #
+# Reader [![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/eloyesp/reader) #
 
 Should be a RSS reading system which looks and works like google Reader UI.
 
