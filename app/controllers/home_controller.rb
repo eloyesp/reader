@@ -5,7 +5,8 @@ class HomeController < ApplicationController
 
   def search
     @query = params[:q]
-    render :text => @query
+    @documents = PgSearch.multisearch(@query).limit(10).includes(:searchable)
+    @results   = @documents.map { |d| d.searchable }
   end
 end
 

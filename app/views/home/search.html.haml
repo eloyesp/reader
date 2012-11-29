@@ -1,0 +1,19 @@
+%h1 Search results
+
+- if @results.empty?
+  %p There are not results for your query, try with something less specific
+- else
+  %ol
+    - @results.each do |result|
+      %li.result
+        - if result.kind_of? Article
+          %strong= link_to result.title, result
+          %p= result.description
+        - else
+          %strong= result.title
+          %p= result.description
+
+%br
+
+= link_to :back
+
