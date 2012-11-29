@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
-gem 'sqlite3'
+gem 'pg'
 gem 'jquery-rails'
 gem "haml", ">= 3.1.7"
 gem "devise", ">= 2.1.2"
