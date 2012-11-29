@@ -33,10 +33,11 @@ class SuscriptionsController < ApplicationController
     end
   end
 
-  # GET /suscriptions/1/edit
-  def edit
-    @suscription = Suscription.find(params[:id])
-  end
+#  TODO: suscriptions should not be edited (should be replaced)
+#  # GET /suscriptions/1/edit
+#  def edit
+#    @suscription = Suscription.find(params[:id])
+#  end
 
   # POST /suscriptions
   # POST /suscriptions.json
@@ -54,21 +55,22 @@ class SuscriptionsController < ApplicationController
     end
   end
 
-  # PUT /suscriptions/1
-  # PUT /suscriptions/1.json
-  def update
-    @suscription = Suscription.find(params[:id])
+#  TODO: suscriptions should not be edited (should be replaced)
+#  # PUT /suscriptions/1
+#  # PUT /suscriptions/1.json
+#  def update
+#    @suscription = Suscription.find(params[:id])
 
-    respond_to do |format|
-      if @suscription.update_attributes(params[:suscription])
-        format.html { redirect_to @suscription, notice: 'Suscription was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @suscription.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+#    respond_to do |format|
+#      if @suscription.update_attributes(params[:suscription])
+#        format.html { redirect_to @suscription, notice: 'Suscription was successfully updated.' }
+#        format.json { head :no_content }
+#      else
+#        format.html { render action: "edit" }
+#        format.json { render json: @suscription.errors, status: :unprocessable_entity }
+#      end
+#    end
+#  end
 
   # DELETE /suscriptions/1
   # DELETE /suscriptions/1.json
